@@ -18,7 +18,9 @@ const setColor = (color,change) =>{
         return
     case 'blue':
         blue + change > 255 || blue + change < 0 ? null : setBlue( blue + change )
-            return
+        return
+    default:
+        return
    }
 }    
 

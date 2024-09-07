@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { Text, View, StyleSheet, Image, TextInput } from "react-native";
 
 const TextScreen = () =>{
- const [ name, setName ] = useState('')
+ const [ name, setName ] = useState('');
+ const [ password, setPassword ] = useState('');
    return(
     <View>
+        <Text>Enter Name :</Text>
         <TextInput
            style={styles.input}
            autoCapitalize="none"
@@ -13,6 +15,17 @@ const TextScreen = () =>{
            onChangeText={(newValue) => {setName(newValue)}}
         />
         <Text>My name is {name}</Text>
+        <View>
+        <Text>Enter Password :</Text>
+        <TextInput
+           style={styles.input}
+           autoCapitalize="none"
+           autoCorrect={false}
+           value={password}
+           onChangeText={(newValue) => {setPassword(newValue)}}
+        />
+        {password.length < 5 ? <Text>Password must be 5 characters</Text> : null}
+        </View>
     </View>
    )
 }
